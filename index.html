@@ -1,15 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="sw">
 <head>
-    <title>UDOM Software Engineering</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christopher Mduzi | Portfolio</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
-        h1 { color: blue; }
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 450px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #38bdf8;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        h1 { margin: 10px 0; color: #38bdf8; font-size: 1.8rem; }
+        .tag {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .skills-container { margin: 25px 0; text-align: left; }
+        .skill-bar {
+            background: #334155;
+            height: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .progress {
+            background: #38bdf8;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .btn-group { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+        .btn {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-primary { background: #38bdf8; color: #0f172a; }
+        .btn-whatsapp { background: #25d366; color: white; }
     </style>
 </head>
 <body>
-    <h1>Mambo vipi, naitwa Christopher!</h1>
-    <p>Hii ni website yangu ya kwanza kabisa.</p>
+    <div class="container">
+        <img src="profile.jpg" alt="Christopher Mduzi">
+        <h1>Christopher Andrew Mduzi</h1>
+        <span class="tag">Software Engineer Student @ UDOM</span>
+        
+        <div class="skills-container">
+            <small>HTML/CSS (85%)</small>
+            <div class="skill-bar"><div class="progress" style="width: 85%"></div></div>
+            <small>Git & Termux (70%)</small>
+            <div class="skill-bar"><div class="progress" style="width: 70%"></div></div>
+            <small>Python/Logic (50%)</small>
+            <div class="skill-bar"><div class="progress" style="width: 50%"></div></div>
+        </div>
+
+        <p>Nimejenga ukurasa huu kitaalamu kwa kutumia <b>Termux</b> kwenye Samsung A16!</p>
+
+        <div class="btn-group">
+            <a href="mailto:chris26thenavigator@gmail.com" class="btn btn-primary">Email</a>
+            <a href="https://wa.me/255XXXXXXXXX" class="btn btn-whatsapp">WhatsApp</a>
+        </div>
+    </div>
 </body>
 </html>
 
