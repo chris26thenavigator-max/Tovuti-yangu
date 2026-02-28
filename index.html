@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christopher Mduzi | Software Engineer</title>
+    <title>Christopher Mduzi | Software Engineer Portfolio</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .portfolio-card { background: #1e293b; width: 95%; max-width: 600px; padding: 30px; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid #334155; }
-        h1 { color: #38bdf8; text-align: center; font-size: 2rem; margin-bottom: 5px; }
-        .title { color: #94a3b8; text-align: center; margin-bottom: 25px; }
+        h1 { color: #38bdf8; text-align: center; font-size: 2.2rem; margin-bottom: 5px; }
+        .title { color: #94a3b8; text-align: center; font-weight: 500; margin-bottom: 25px; }
         .section { margin-top: 20px; padding: 15px; background: #0f172a; border-radius: 12px; border: 1px solid #1e293b; }
-        h2 { font-size: 1.1rem; color: #22d3ee; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-top: 0; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-        .item { background: #1e293b; padding: 10px; border-radius: 8px; font-size: 0.85rem; border-left: 3px solid #38bdf8; }
-        .hobby { border-left-color: #f472b6; }
+        h2 { font-size: 1.1rem; color: #22d3ee; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-top: 0; margin-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .item { background: #1e293b; padding: 8px 12px; border-radius: 8px; font-size: 0.85rem; border-left: 3px solid #38bdf8; }
+        .hobby-item { border-left-color: #f472b6; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-        .btn { display: block; text-align: center; padding: 12px; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 0.9rem; }
-        .wa { background: #25d366; }
-        .em { background: #38bdf8; }
+        .btn { display: block; text-align: center; padding: 12px; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .wa-btn { background: #25d366; }
+        .email-btn { background: #38bdf8; }
     </style>
 </head>
 <body>
@@ -26,25 +26,30 @@
         <div class="title">Software Engineering Student @ UDOM</div>
         <div class="section">
             <h2>🎓 Elimu & Chuo</h2>
-            <p><strong>University of Dodoma (UDOM)</strong><br>BSc. in Software Engineering</p>
+            <p style="margin: 0; color: #38bdf8; font-weight: bold;">University of Dodoma (UDOM)</p>
+            <p style="margin: 5px 0; font-size: 0.85rem;">BSc. in Software Engineering</p>
         </div>
         <div class="section">
             <h2>🛠 Huduma (Services)</h2>
             <div class="grid">
                 <div class="item">🌐 Web Development</div>
                 <div class="item">🔧 Code Debugging</div>
+                <div class="item">📊 Database Design</div>
+                <div class="item">💻 IT Consultation</div>
             </div>
         </div>
         <div class="section">
             <h2>🎨 Vitu Ninavyopenda (Hobbies)</h2>
             <div class="grid">
-                <div class="item hobby">🚀 New Tech</div>
-                <div class="item hobby">🎵 Kwaya za Kikatoliki</div>
+                <div class="item hobby-item">🚀 Exploring New Tech</div>
+                <div class="item hobby-item">🎵 Kwaya za Kikatoliki</div>
+                <div class="item hobby-item">🎮 Gaming</div>
+                <div class="item hobby-item">📚 Algorithms</div>
             </div>
         </div>
         <div class="contact-grid">
-            <a href="https://wa.me/255772888567" class="btn wa">WhatsApp</a>
-            <a href="mailto:Chris26thenavigator@gmail.com" class="btn em">Email Me</a>
+            <a href="https://wa.me/255772888567" class="btn wa-btn">WhatsApp</a>
+            <a href="mailto:Chris26thenavigator@gmail.com" class="btn email-btn">Email Me</a>
         </div>
     </div>
 </body>
