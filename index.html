@@ -3,55 +3,532 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christopher Mduzi | Software Engineer Portfolio</title>
+    <title>CHRIS TWENTY SIX | OMNIPOTENT WEB-OS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .portfolio-card { background: #1e293b; width: 95%; max-width: 600px; padding: 30px; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid #334155; }
-        h1 { color: #38bdf8; text-align: center; font-size: 2.2rem; margin-bottom: 5px; }
-        .title { color: #94a3b8; text-align: center; font-weight: 500; margin-bottom: 25px; }
-        .section { margin-top: 20px; padding: 15px; background: #0f172a; border-radius: 12px; border: 1px solid #1e293b; }
-        h2 { font-size: 1.1rem; color: #22d3ee; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-top: 0; margin-bottom: 10px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .item { background: #1e293b; padding: 8px 12px; border-radius: 8px; font-size: 0.85rem; border-left: 3px solid #38bdf8; }
-        .hobby-item { border-left-color: #f472b6; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-        .btn { display: block; text-align: center; padding: 12px; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
-        .wa-btn { background: #25d366; }
-        .email-btn { background: #38bdf8; }
+        /* ==========================================================================
+           CHRIS26 ULTIMATE WEB-OS STYLESHEET
+           ENGINEER: CHRIS TWENTY SIX
+           BASE: UNIVERSITY OF DODOMA (UDOM) - SOFTWARE ENGINEERING
+           ========================================================================== */
+
+        :root {
+            --bg-color: #050505;
+            --primary: #00ffcc; /* Cyber Teal */
+            --secondary: #ff007f; /* Neon Pink */
+            --accent: #7000ff; /* Deep Purple */
+            --text-main: #e0e0e0;
+            --glass-bg: rgba(10, 10, 15, 0.65);
+            --glass-border: rgba(0, 255, 204, 0.2);
+            --glow-primary: 0 0 20px rgba(0, 255, 204, 0.5);
+            --glow-secondary: 0 0 20px rgba(255, 0, 127, 0.5);
+            --font-tech: 'Orbitron', sans-serif;
+            --font-code: 'Fira Code', monospace;
+            --font-text: 'Rajdhani', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
+        
+        body {
+            background-color: var(--bg-color); color: var(--text-main);
+            font-family: var(--font-text); overflow-x: hidden; scroll-behavior: smooth;
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* =========================================
+           1. BOOT SEQUENCE PRELOADER
+           ========================================= */
+        #boot-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #000; z-index: 9999; display: flex; flex-direction: column;
+            justify-content: center; padding: 40px; font-family: var(--font-code);
+            color: var(--primary); transition: opacity 1s ease-out;
+        }
+        .boot-line { margin-bottom: 8px; font-size: 0.9rem; opacity: 0; }
+        .glitch-load { font-size: 3rem; font-family: var(--font-tech); color: #fff; text-shadow: var(--glow-primary); margin-bottom: 20px; }
+
+        /* =========================================
+           2. PHYSICS CANVAS BACKGROUND
+           ========================================= */
+        #physics-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.6; }
+
+        /* =========================================
+           3. MAIN LAYOUT & NAVIGATION
+           ========================================= */
+        .os-container { max-width: 1400px; margin: 0 auto; padding: 20px; position: relative; }
+        
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 40px; background: var(--glass-bg); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border); border-radius: 0 0 20px 20px;
+            position: sticky; top: 0; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .nav-brand { font-family: var(--font-tech); font-size: 1.5rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-brand span { color: var(--primary); text-shadow: var(--glow-primary); }
+        .nav-status { font-family: var(--font-code); font-size: 0.8rem; color: var(--secondary); animation: blink 2s infinite; }
+
+        /* =========================================
+           4. HERO SECTION WITH IMAGE PROFILE
+           ========================================= */
+        .hero { min-height: 90vh; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 0 40px; }
+        
+        .hero-text-box { flex: 1; }
+        .hero-title {
+            font-family: var(--font-tech); font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900; line-height: 1; color: transparent;
+            -webkit-text-stroke: 2px var(--primary); margin-bottom: 20px;
+            position: relative;
+        }
+        .hero-title::before {
+            content: "CHRIS TWENTY SIX"; position: absolute; left: 0; top: 0;
+            color: var(--primary); width: 0%; overflow: hidden;
+            border-right: 4px solid var(--secondary); animation: fillText 4s forwards 3s, blinkCursor 0.5s infinite;
+        }
+
+        .hero-subtitle { font-size: 1.5rem; color: #aaa; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 30px; }
+        
+        /* IMAGE HOLOGRAM FRAME */
+        .hero-image-box {
+            flex: 1; display: flex; justify-content: center; position: relative;
+        }
+        .hologram-frame {
+            position: relative; width: 350px; height: 450px;
+            border: 2px solid var(--primary); border-radius: 20px;
+            box-shadow: inset 0 0 50px rgba(0,255,204,0.2), 0 0 30px rgba(0,255,204,0.4);
+            overflow: hidden; background: rgba(0, 255, 204, 0.05);
+        }
+        .hologram-frame::after {
+            content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 50%;
+            background: linear-gradient(to bottom, rgba(0,255,204,0) 0%, rgba(0,255,204,0.3) 100%);
+            animation: scanline 4s linear infinite; pointer-events: none;
+        }
+        .profile-img {
+            width: 100%; height: 100%; object-fit: cover; filter: contrast(1.2) saturate(0.8) sepia(0.3) hue-rotate(130deg);
+            mix-blend-mode: luminosity; opacity: 0.8; transition: 0.5s;
+        }
+        .hologram-frame:hover .profile-img { filter: none; mix-blend-mode: normal; opacity: 1; }
+
+        /* =========================================
+           5. INTERACTIVE TERMINAL (FUNCTIONAL)
+           ========================================= */
+        .terminal-container {
+            background: rgba(5, 5, 10, 0.9); border: 1px solid var(--glass-border);
+            border-radius: 15px; padding: 20px; margin: 60px 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), var(--glow-primary);
+            position: relative; overflow: hidden;
+        }
+        .terminal-header {
+            display: flex; justify-content: space-between; border-bottom: 1px solid #333;
+            padding-bottom: 10px; margin-bottom: 20px; font-family: var(--font-code); font-size: 0.8rem; color: #666;
+        }
+        .term-dots span { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 5px; }
+        .term-dots span:nth-child(1) { background: #ff5f56; }
+        .term-dots span:nth-child(2) { background: #ffbd2e; }
+        .term-dots span:nth-child(3) { background: #27c93f; }
+
+        .terminal-window {
+            height: 300px; overflow-y: auto; font-family: var(--font-code);
+            font-size: 1rem; color: var(--primary); display: flex; flex-direction: column;
+        }
+        .term-output { margin-bottom: 10px; color: #a3a3a3; }
+        .term-output.success { color: #00ffcc; }
+        .term-output.error { color: #ff007f; }
+        
+        .term-input-line { display: flex; align-items: center; margin-top: 10px; }
+        .prompt { color: var(--secondary); margin-right: 10px; font-weight: bold; }
+        .term-input {
+            background: transparent; border: none; color: #fff; font-family: var(--font-code);
+            font-size: 1rem; width: 100%; outline: none; caret-color: var(--primary);
+        }
+
+        /* =========================================
+           6. ACADEMIC & SKILLS DATABANKS
+           ========================================= */
+        .databank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; padding: 0 40px; margin-bottom: 80px; }
+        
+        .data-card {
+            background: var(--glass-bg); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px; padding: 40px; backdrop-filter: blur(15px);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative;
+        }
+        .data-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--primary); box-shadow: var(--glow-primary); }
+        .data-card h3 { font-family: var(--font-tech); font-size: 2rem; color: #fff; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        .data-card p { font-size: 1.2rem; line-height: 1.8; color: #bbb; }
+
+        /* SKILL METRICS */
+        .metric { margin-top: 25px; }
+        .metric-label { display: flex; justify-content: space-between; font-family: var(--font-code); font-size: 0.9rem; margin-bottom: 8px; color: var(--primary); }
+        .metric-bar-bg { width: 100%; height: 8px; background: #222; border-radius: 10px; overflow: hidden; }
+        .metric-fill { height: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); width: 0; transition: width 2s ease; }
+
+        /* =========================================
+           7. ACTION / CONTACT SECTOR
+           ========================================= */
+        .action-sector { text-align: center; padding: 100px 20px; background: radial-gradient(circle at center, rgba(112, 0, 255, 0.1) 0%, transparent 70%); }
+        .action-sector h2 { font-family: var(--font-tech); font-size: 3.5rem; margin-bottom: 30px; }
+        
+        .cyber-btn {
+            display: inline-block; padding: 20px 50px; font-family: var(--font-tech);
+            font-size: 1.2rem; font-weight: 900; text-transform: uppercase;
+            color: #000; background: var(--primary); border: none;
+            border-radius: 5px; text-decoration: none; position: relative;
+            overflow: hidden; transition: 0.3s; margin: 10px;
+            box-shadow: var(--glow-primary); clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+        .cyber-btn:hover { background: #fff; transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px; font-family: var(--font-code); color: #555; border-top: 1px solid #111; }
+
+        /* =========================================
+           ANIMATIONS
+           ========================================= */
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @keyframes scanline { 0% { top: -100%; } 100% { top: 200%; } }
+        @keyframes fillText { to { width: 100%; } }
+        @keyframes blinkCursor { 50% { border-color: transparent; } }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 40px 20px; }
+            .hero-title::before { border-right: none; }
+            .hologram-frame { width: 100%; max-width: 350px; }
+            .databank-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <div class="portfolio-card">
-        <h1>Christopher Andrew Mduzi</h1>
-        <div class="title">Software Engineering Student @ UDOM</div>
-        <div class="section">
-            <h2>🎓 Elimu & Chuo</h2>
-            <p style="margin: 0; color: #38bdf8; font-weight: bold;">University of Dodoma (UDOM)</p>
-            <p style="margin: 5px 0; font-size: 0.85rem;">BSc. in Software Engineering</p>
-        </div>
-        <div class="section">
-            <h2>🛠 Huduma (Services)</h2>
-            <div class="grid">
-                <div class="item">🌐 Web Development</div>
-                <div class="item">🔧 Code Debugging</div>
-                <div class="item">📊 Database Design</div>
-                <div class="item">💻 IT Consultation</div>
-            </div>
-        </div>
-        <div class="section">
-            <h2>🎨 Vitu Ninavyopenda (Hobbies)</h2>
-            <div class="grid">
-                <div class="item hobby-item">🚀 Exploring New Tech</div>
-                <div class="item hobby-item">🎵 Kwaya za Kikatoliki</div>
-                <div class="item hobby-item">🎮 Gaming</div>
-                <div class="item hobby-item">📚 Algorithms</div>
-            </div>
-        </div>
-        <div class="contact-grid">
-            <a href="https://wa.me/255772888567" class="btn wa-btn">WhatsApp</a>
-            <a href="mailto:Chris26thenavigator@gmail.com" class="btn email-btn">Email Me</a>
-        </div>
+
+    <div id="boot-screen">
+        <div class="glitch-load">CHRIS26_OS v8.0</div>
+        <div id="boot-logs"></div>
     </div>
+
+    <canvas id="physics-canvas"></canvas>
+
+    <div class="os-container" style="display: none;" id="main-os">
+        
+        <nav>
+            <div class="nav-brand">CHRIS<span>26</span></div>
+            <div class="nav-status">SYS_STATUS: ONLINE_AND_SECURE</div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text-box">
+                <div class="hero-subtitle">University of Dodoma // Software Engineer</div>
+                <h1 class="hero-title">CHRIS TWENTY SIX</h1>
+                <p style="font-size: 1.2rem; color: #999; max-width: 600px; margin-bottom: 40px; line-height: 1.8;">
+                    Sijengi tu website au programu; ninasanifu mifumo ya kitalamu. Kuanzia matatizo magumu ya <strong>Discrete Mathematics</strong> mpaka uboreshaji wa vifaa kupitia <strong>AndroidIDE</strong>. Mimi ndiye kielelezo cha kizazi kipya cha wahandisi.
+                </p>
+                <a href="#terminal" class="cyber-btn" style="background: var(--secondary); box-shadow: var(--glow-secondary);">INITIATE TERMINAL</a>
+            </div>
+            
+            <div class="hero-image-box">
+                <div class="hologram-frame">
+                    <img src="0209725a-3b5a-4950-95b3-fa3e587f2a9b" alt="Chris26 Hologram" class="profile-img">
+                </div>
+            </div>
+        </section>
+
+        <div class="terminal-container" id="terminal">
+            <div class="terminal-header">
+                <div class="term-dots"><span></span><span></span><span></span></div>
+                <div>CHRIS26 ROOT ACCESS TERMINAL - Type 'help'</div>
+            </div>
+            <div class="terminal-window" id="term-window">
+                <div class="term-output">Welcome to Chris26 Web-OS. Authentic UDOM Engineering.</div>
+                <div class="term-output">Type <span style="color:var(--secondary)">help</span> to see available commands.</div>
+                
+                <div class="term-input-line" id="input-line-container">
+                    <span class="prompt">chris26@udom:~$</span>
+                    <input type="text" class="term-input" id="term-input" autocomplete="off" autofocus>
+                </div>
+            </div>
+        </div>
+
+        <div class="databank-grid">
+            
+            <div class="data-card">
+                <h3>01 // Core Philosophy</h3>
+                <p>Nikiwa kama mwanafunzi wa <strong>Software Engineering UDOM</strong>, nimejifunza kuwa kodi bora sio inayofanya kazi tu, bali inayofanya kazi kwa kasi, usalama, na ufanisi wa hali ya juu (System Optimization).</p>
+            </div>
+
+            <div class="data-card">
+                <h3>02 // Technical Proficiencies</h3>
+                <div class="metric">
+                    <div class="metric-label"><span>C++ System Architecture</span><span>98%</span></div>
+                    <div class="metric-bar-bg"><div class="metric-fill" data-target="98%"></div></div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label"><span>Discrete Math / Logic</span><span>95%</span></div>
+                    <div class="metric-bar-bg"><div class="metric-fill" data-target="95%"></div></div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label"><span>Python Automation</span><span>90%</span></div>
+                    <div class="metric-bar-bg"><div class="metric-fill" data-target="90%"></div></div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label"><span>Java Mobile Logic</span><span>88%</span></div>
+                    <div class="metric-bar-bg"><div class="metric-fill" data-target="88%"></div></div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="action-sector">
+            <h2>READY TO DEPLOY?</h2>
+            <p style="color: #aaa; margin-bottom: 40px; font-size: 1.2rem;">Wasiliana na Mhandisi wa mifumo uliyethibitishwa.</p>
+            <a href="https://wa.me/255772888567" class="cyber-btn">WHATSAPP LINK</a>
+            <a href="mailto:Chris26thenavigator@gmail.com" class="cyber-btn" style="background: transparent; color: var(--primary); border: 2px solid var(--primary); box-shadow: none;">EMAIL PROTOCOL</a>
+        </div>
+
+        <footer>
+            <p>SYSTEM ENGINEERED BY CHRIS TWENTY SIX // DODOMA SECURE NODE 2026</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // VARIABLE ZA KITALAMU ZILIZOOMBWA:
+        const Nzega = "System Core Initialized";
+        const Bulunde = "Memory Allocation Secured";
+
+        /* --- 1. BOOT SEQUENCE LOGIC --- */
+        const bootLines = [
+            "Initializing Linux Kernel...",
+            "Loading Core Drivers...",
+            "Mounting /dev/sda1 (UDOM Server)...",
+            "Checking discrete math logic gates: OK",
+            "Compiling C++ memory buffers...",
+            `[LOG] ${Nzega}`,
+            `[LOG] ${Bulunde}`,
+            "Establishing connection to CHRIS TWENTY SIX profile...",
+            "Access Granted."
+        ];
+
+        const bootContainer = document.getElementById('boot-logs');
+        let bootIndex = 0;
+
+        function displayBootLog() {
+            if (bootIndex < bootLines.length) {
+                const p = document.createElement('div');
+                p.className = 'boot-line';
+                p.innerText = '> ' + bootLines[bootIndex];
+                bootContainer.appendChild(p);
+                
+                // Fade in effect
+                setTimeout(() => p.style.opacity = 1, 50);
+                
+                bootIndex++;
+                setTimeout(displayBootLog, Math.random() * 300 + 100);
+            } else {
+                setTimeout(() => {
+                    document.getElementById('boot-screen').style.opacity = 0;
+                    setTimeout(() => {
+                        document.getElementById('boot-screen').style.display = 'none';
+                        document.getElementById('main-os').style.display = 'block';
+                        triggerProgressBars(); // Washa animations za metrics
+                    }, 1000);
+                }, 800);
+            }
+        }
+        
+        window.onload = () => {
+            displayBootLog();
+            initPhysicsCanvas();
+        };
+
+        /* --- 2. FUNCTIONAL TERMINAL ENGINE --- */
+        const termInput = document.getElementById('term-input');
+        const termWindow = document.getElementById('term-window');
+        const inputContainer = document.getElementById('input-line-container');
+
+        termInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const command = this.value.trim().toLowerCase();
+                this.value = '';
+                
+                // Print command typed by user
+                printTerminal(`chris26@udom:~$ ${command}`, 'normal');
+                
+                // Command Processor (Switch Statement)
+                processCommand(command);
+            }
+        });
+
+        function printTerminal(text, type) {
+            const div = document.createElement('div');
+            div.className = `term-output ${type}`;
+            div.innerText = text;
+            termWindow.insertBefore(div, inputContainer);
+            termWindow.scrollTop = termWindow.scrollHeight; // Auto scroll down
+        }
+
+        function processCommand(cmd) {
+            switch(cmd) {
+                case 'help':
+                    printTerminal('Available commands:', 'success');
+                    printTerminal(' - about    : Who is Chris26?');
+                    printTerminal(' - skills   : List technical proficiencies');
+                    printTerminal(' - clear    : Clear the terminal');
+                    printTerminal(' - contact  : Display contact links');
+                    break;
+                case 'about':
+                    printTerminal('Chris Twenty Six: A top-tier Software Engineering student at UDOM.', 'success');
+                    printTerminal('Specialization: System Optimization, C++, and Discrete Mathematics.', 'normal');
+                    break;
+                case 'skills':
+                    printTerminal('[1] C++ Memory Management - Expert', 'success');
+                    printTerminal('[2] Python Scripting - Advanced', 'success');
+                    printTerminal('[3] Samsung RAM Tuning via API - Master', 'success');
+                    break;
+                case 'clear':
+                    // Remove all outputs except the input line
+                    const outputs = termWindow.querySelectorAll('.term-output');
+                    outputs.forEach(out => out.remove());
+                    break;
+                case 'contact':
+                    printTerminal('WhatsApp: +255 772 888 567', 'success');
+                    printTerminal('Email: Chris26thenavigator@gmail.com', 'success');
+                    break;
+                // EASTER EGGS (Siri Mfichoni)
+                case 'nzega':
+                    printTerminal('>>> SECRET UNLOCKED: System Core Variable "Nzega" activated. Maximum logic applied!', 'error');
+                    break;
+                case 'bulunde':
+                    printTerminal('>>> OVERRIDE ACCEPTED: Memory "Bulunde" allocated. You are a true engineer.', 'error');
+                    break;
+                case '':
+                    break;
+                default:
+                    printTerminal(`bash: ${cmd}: command not found. Type 'help'.`, 'error');
+            }
+        }
+
+        // Terminal always focuses when clicked
+        document.getElementById('terminal').addEventListener('click', () => {
+            termInput.focus();
+        });
+
+        /* --- 3. ADVANCED PHYSICS CANVAS (INTERACTIVE BACKGROUND) --- */
+        const canvas = document.getElementById('physics-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX; mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = undefined; mouse.y = undefined;
+        });
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x; this.y = y;
+                this.baseX = x; this.baseY = y;
+                this.size = Math.random() * 2 + 1;
+                this.density = (Math.random() * 30) + 1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(0, 255, 204, 0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+            update() {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        this.x -= dx / 10;
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        this.y -= dy / 10;
+                    }
+                }
+                this.draw();
+            }
+        }
+
+        function initPhysicsCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            // Create grid of particles
+            let numberOfParticles = (canvas.width * canvas.height) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                particles.push(new Particle(x, y));
+            }
+            animateCanvas();
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+            connectParticles();
+            requestAnimationFrame(animateCanvas);
+        }
+
+        function connectParticles() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) + 
+                                   ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                        let opacityValue = 1 - (distance / 20000);
+                        ctx.strokeStyle = `rgba(112, 0, 255, ${opacityValue})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initPhysicsCanvas();
+        });
+
+        /* --- 4. SCROLL ANIMATIONS (METRICS) --- */
+        function triggerProgressBars() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        bar.style.width = bar.getAttribute('data-target');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.metric-fill').forEach(bar => {
+                observer.observe(bar);
+            });
+        }
+    </script>
 </body>
 </html>
-
